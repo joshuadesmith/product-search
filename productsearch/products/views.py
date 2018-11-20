@@ -12,5 +12,13 @@ def index(request):
 
 
 def search(request):
-    # TODO
-    return HttpResponse("Search view")
+    qs = Product.objects.order_by('-last_sold')
+    if request.method == 'GET':
+        search_string = request.GET.get('search_text')
+        if search_string:
+            print("Got search string: {}".format(search_string))
+            qs = qs.filter(description__icontains=search_string)
+
+    template = loader.get_template('products/index.html')
+
+    return HttpResponse(template.render({'product_list': qs}, request))
