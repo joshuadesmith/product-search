@@ -39,17 +39,6 @@
 {% endblock %}
 {% block search_form %}
 <div>
-    <form id="search_form" action="/products/search/" method="get" accept-charset="UTF-8">
-        <label for="description">Description:</label>
-        <input class="search_text"
-               id="description"
-               type="text"
-               name="description"
-               placeholder="Search Products"
-               value="{{ form.description.value }}"
-        >
-        <input type="submit" value="Go">
-    </form>description
-    <a href="/products/search/advanced/">Advanced Search >></a>
+    <a href="/products/search/">Search Products >></a>
 </div>
 {% endblock %}

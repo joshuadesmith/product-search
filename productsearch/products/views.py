@@ -16,7 +16,7 @@ def index(request):
 
 def search(request):
     print('In search view')
-    template = loader.get_template('products/index.html')
+    template = loader.get_template('products/search.html')
     qs = Product.objects.order_by('-last_sold')
     if request.method == 'GET':
         search_string = request.GET.get('description')
