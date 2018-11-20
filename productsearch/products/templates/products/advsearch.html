@@ -1,0 +1,18 @@
+{% extends "./index.html" %}
+
+{% block search_form %}
+<form id="search_form" action="/products/search/advanced/" method="get" accept-charset="UTF-8">
+    <div>
+        <label for="search_desc">Description:</label>
+        <input class="search_text" id="search_desc" type="text" name="description" placeholder="E.g. Apple">
+    </div>
+    <div>
+        <label for="search_dep">Department:</label>
+        <input class="search_text" id="search_dep" type="text" name="department" placeholder="E.g. Pharmacy">
+    </div>
+    <div>
+        <input type="submit" value="Search">
+    </div>
+</form>
+<a href="/products/search/">Simple Search >></a>
+{% endblock %}
