@@ -12,11 +12,11 @@ local.properties
 
 # Venv
 #
-venv/**
+venv/
 
 # Byte-compiled / optimized / DLL files
 #
-productsearch/products/__pycache__/**
+productsearch/products/__pycache__/
 __pycache__/
 *.py[cod]
 *$py.class
