@@ -1,0 +1,37 @@
+<div>
+    <h1>Product Listing:</h1>
+</div>
+{% if product_list %}
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Last Sold</th>
+            <th>Shelf Life</th>
+            <th>Department</th>
+            <th>Price</th>
+            <th>Units</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in product_list %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.last_sold }}</td>
+            <td>{{ product.shelf_life }}d</td>
+            <td>{{ product.department }}</td>
+            <td>${{ product.price }}</td>
+            <td>{{ product.unit }}</td>
+            <td>${{ product.cost }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+    <h1>No Products currently available</h1>
+{% endif %}
