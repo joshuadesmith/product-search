@@ -1,8 +1,10 @@
 {% load static %}
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'products/styles.css' %}">
+
 <div class="container">
     <div class="header-section">
-        <h1>Product Listing:</h1>
+        <h1>Product Database</h1>
     </div>
     {% block product_table %}
     <div class="table-section">
@@ -16,7 +18,7 @@
                 <th>Shelf Life</th>
                 <th>Department</th>
                 <th>Price</th>
-                <th>Units</th>
+                <th>Unit</th>
                 <th>Cost</th>
             </tr>
             </thead>

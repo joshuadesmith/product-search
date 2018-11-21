@@ -16,10 +16,19 @@
 /****** full page ******/
 .container {
     background: #394D61;
+    height: 100%;
 }
 
 body {
     margin: 0;
+}
+
+body, h1, h2, th, td {
+    font-family: 'Lato', sans-serif;
+}
+
+td {
+    font-weight: 300;
 }
 
 /****** header section ******/
@@ -35,8 +44,8 @@ h1 {
     display: inline-block;
     width: auto;
     margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 4px solid #FFFFFF;
+    padding-bottom: 1px;
+    /*border-bottom: 4px solid #FFFFFF;*/
 }
 
 /****** table section *****/
@@ -90,7 +99,7 @@ thead th:nth-child(8) {
 
 th, td {
     margin: 5px;
-    padding: 5px;
+    padding: 8px;
     color: #FFFFFF;
 }
 
