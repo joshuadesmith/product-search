@@ -196,15 +196,36 @@ tbody tr:nth-child(odd) {
     padding: 20px;
 }
 
+.adv-search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.adv-search-left, .adv-search-center, .adv-search-right {
+    flex: 1;
+}
+
 .form-field-div {
-    margin: 15px 0;
+    margin: 15px 20px 15px 0;
+    display: flex !important;
+    justify-content: flex-start;
+}
+
+.form-field-div > label {
+    flex: 1;
+}
+
+.form-field-div > input {
+    flex: 2;
 }
 
 .form-field-title {
     padding: 5px 0;
     color: #FFFFFF;
     font-size: 16px;
-    font-weight: bold;
+    /*flex: 1;*/
 }
 
 .form-field-label {
@@ -220,19 +241,20 @@ tbody tr:nth-child(odd) {
 }
 
 .form-field-min-max {
-    width: 100%;
+    display: flex;
 }
 
 .form-field-min, .form-field-max {
-    width: 50%;
+    /*flex: 1;*/
 }
 
-.form-field-min {
-    margin-right: auto;
+.form-field-min, .form-field-max {
+    /*flex: 1;*/
+    /*margin-right: auto;*/
 }
 
 .form-field-max {
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 
 h2 {
@@ -247,7 +269,7 @@ input[type=text] {
 
 input.search-box {
     background: #495C70;
-    width: 20%;
+    width: auto;
     padding: 5px 5px 5px 0;
     margin: 0;
     border-style: none;
@@ -258,7 +280,7 @@ input.search-box {
 }
 
 input.search-box.min-max-box {
-    width: 5%;
+    width: 100px;
 }
 
 input[type=submit].search-button {
