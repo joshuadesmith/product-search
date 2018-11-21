@@ -1,47 +1,48 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'products/styles.css' %}">
-
-<div class="header-section">
-    <h1>Product Listing:</h1>
+<div class="container">
+    <div class="header-section">
+        <h1>Product Listing:</h1>
+    </div>
+    {% block product_table %}
+    <div class="table-section">
+        {% if product_list %}
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Last Sold</th>
+                <th>Shelf Life</th>
+                <th>Department</th>
+                <th>Price</th>
+                <th>Units</th>
+                <th>Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in product_list %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.description|lower|capfirst }}</td>
+                <td>{{ product.last_sold }}</td>
+                <td>{{ product.shelf_life }}d</td>
+                <td>{{ product.department|lower|capfirst }}</td>
+                <td>${{ product.price }}</td>
+                <td>{{ product.unit|lower }}</td>
+                <td>${{ product.cost }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h1>No Products found</h1>
+        {% endif %}
+    </div>
+    {% endblock %}
+    {% block search_form %}
+    <div class="search-section">
+        <a href="/products/search/">Search products...</a>
+    </div>
+    {% endblock %}
 </div>
-{% block product_table %}
-<div class="table-section">
-    {% if product_list %}
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Last Sold</th>
-            <th>Shelf Life</th>
-            <th>Department</th>
-            <th>Price</th>
-            <th>Units</th>
-            <th>Cost</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for product in product_list %}
-        <tr>
-            <td>{{ product.id }}</td>
-            <td>{{ product.description|lower|capfirst }}</td>
-            <td>{{ product.last_sold }}</td>
-            <td>{{ product.shelf_life }}d</td>
-            <td>{{ product.department|lower|capfirst }}</td>
-            <td>${{ product.price }}</td>
-            <td>{{ product.unit|lower }}</td>
-            <td>${{ product.cost }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <h1>No Products found</h1>
-    {% endif %}
-</div>
-{% endblock %}
-{% block search_form %}
-<div class="search-section">
-    <a href="/products/search/">Search products...</a>
-</div>
-{% endblock %}
