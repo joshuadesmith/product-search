@@ -45,6 +45,7 @@ class CustomFilter(object):
 
 
 LOOKUP_EXPRESSIONS = {
+    'id_num': 'icontains',
     'description': 'icontains',
     'department': 'icontains',
     'last_sold_min': 'gte',
@@ -61,6 +62,7 @@ LOOKUP_EXPRESSIONS = {
 
 
 FIELD_TYPES = {
+    'id_num': forms.IntegerField,
     'description': forms.CharField,
     'department': forms.CharField,
     'last_sold_min': forms.DateField,
@@ -114,7 +116,8 @@ class ProductFilterSet(object):
         return value
 
     def custom_filter(self, field_name):
-        if 'min' in field_name or 'max' in field_name:  # Handle form fields that don't match field names
+        if 'min' in field_name or 'max' in field_name or 'num' in field_name:
+            # Handle form fields that don't match field names
             expr = LOOKUP_EXPRESSIONS[field_name]
             field = field_name.rsplit('_', 1)[0]
             return CustomFilter(field_name=field, lookup_expression=expr)

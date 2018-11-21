@@ -12,6 +12,7 @@ class AdvancedSearchForm(forms.Form):
     """
     Form for advanced search
     """
+    id_num = forms.IntegerField(required=False)
     description = forms.CharField(label='Description', max_length=200, required=False)
     department = forms.CharField(label='Department', max_length=20, required=False)
     last_sold_min = forms.DateField(label='Last Sold Min', required=False)

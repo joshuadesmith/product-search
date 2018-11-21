@@ -18,8 +18,8 @@
                 <th>Shelf Life</th>
                 <th>Department</th>
                 <th>Price</th>
-                <th>Unit</th>
                 <th>Cost</th>
+                <th>Unit</th>
             </tr>
             </thead>
             <tbody>
@@ -31,8 +31,14 @@
                 <td>{{ product.shelf_life }}d</td>
                 <td>{{ product.department|lower|capfirst }}</td>
                 <td>${{ product.price }}</td>
-                <td>{{ product.unit|lower }}</td>
                 <td>${{ product.cost }}</td>
+                <td>
+                    {% if product.unit == "LB" %}
+                        {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s{% endif %}
+                    {% else %}
+                        {{ product.unit|lower }}
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
             </tbody>
