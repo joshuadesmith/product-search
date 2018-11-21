@@ -1,58 +1,62 @@
 {% extends "./index.html" %}
 
 {% block search_form %}
-<h2>Advanced Search</h2>
-<form id="search_form" action="/products/search/advanced/" method="get" accept-charset="UTF-8">
-    <div class="form-field-div">
-        <label for="description">Description: </label>
-        <input class="search-box" id="description" name="description" value="{{ form.description.value }}">
-    </div>
-    <div class="form-field-div">
-        <label for="department">Department: </label>
-        <input class="search-box" id="department" name="department" value="{{ form.department.value }}">
-    </div>
-    <div class="form-field-div">
-        <div class="form-field-title">Last Sold</div>
-        <div class="form-field-min-max">
-            <span class="form-field-min">
-                <label for="last_sold_min">Min: </label>
-                <input class="min-max-box" id="last_sold_min" name="last_sold_min" value="{{ form.last_sold_min.value }}">
-            </span>
-            <span class="form-field-max">
-                <label for="last_sold_max">Max: </label>
-                <input class="min-max-box" id="last_sold_max" name="last_sold_max" value="{{ form.last_sold_max.value }}">
-            </span>
+<div class="search-section">
+    <h2>Advanced Search</h2>
+    <form id="search_form" action="/products/search/advanced/" method="get" accept-charset="UTF-8">
+        <div class="form-field-div">
+            <label class="form-field-label" for="description">Description: </label>
+            <input class="search-box" id="description" name="description" value="{{ form.description.value }}">
         </div>
-    </div>
-    <div class="form-field-div">
-        <div class="form-field-title">Price</div>
-        <div class="form-field-min-max">
-            <span class="form-field-min">
-                <label for="price_min">Min: </label>
-                <input class="min-max-box" id="price_min" name="price_min" value="{{ form.price_min.value }}">
-            </span>
-            <span class="form-field-max">
-                <label for="price_max">Max: </label>
-                <input class="min-max-box" id="price_max" name="price_max" value="{{ form.price_max.value }}">
-            </span>
+        <div class="form-field-div">
+            <label class="form-field-label" for="department">Department: </label>
+            <input class="search-box" id="department" name="department" value="{{ form.department.value }}">
         </div>
-    </div>
-    <div class="form-field-div">
-        <div class="form-field-title">Cost</div>
-        <div class="form-field-min-max">
+        <div class="form-field-div">
+            <div class="form-field-title">Last Sold</div>
+            <div class="form-field-min-max">
             <span class="form-field-min">
-                <label for="cost_min">Min: </label>
-                <input class="min-max-box" id="cost_min" name="cost_min" value="{{ form.cost_min.value }}">
+                <label class="form-field-label" for="last_sold_min">Min: </label>
+                <input class="search-box min-max-box" id="last_sold_min" name="last_sold_min"
+                       value="{{ form.last_sold_min.value }}">
             </span>
-            <span class="form-field-max">
-                <label for="cost_max">Max: </label>
-                <input class="min-max-box" id="cost_max" name="cost_max" value="{{ form.cost_max.value }}">
+                <span class="form-field-max">
+                <label class="form-field-label" for="last_sold_max">Max: </label>
+                <input class="search-box min-max-box" id="last_sold_max" name="last_sold_max"
+                       value="{{ form.last_sold_max.value }}">
             </span>
+            </div>
         </div>
-    </div>
-    <div>
-        <input type="submit" value="Search">
-    </div>
-</form>
-<a href="/products/search/">Simple Search >></a>
+        <div class="form-field-div">
+            <div class="form-field-title">Price</div>
+            <div class="form-field-min-max">
+            <span class="form-field-min">
+                <label class="form-field-label" for="price_min">Min: </label>
+                <input class="search-box min-max-box" id="price_min" name="price_min" value="{{ form.price_min.value }}">
+            </span>
+                <span class="form-field-max">
+                <label class="form-field-label" for="price_max">Max: </label>
+                <input class="search-box min-max-box" id="price_max" name="price_max" value="{{ form.price_max.value }}">
+            </span>
+            </div>
+        </div>
+        <div class="form-field-div">
+            <div class="form-field-title">Cost</div>
+            <div class="form-field-min-max">
+            <span class="form-field-min">
+                <label class="form-field-label" for="cost_min">Min: </label>
+                <input class="search-box min-max-box" id="cost_min" name="cost_min" value="{{ form.cost_min.value }}">
+            </span>
+                <span class="form-field-max">
+                <label class="form-field-label" for="cost_max">Max: </label>
+                <input class="search-box min-max-box" id="cost_max" name="cost_max" value="{{ form.cost_max.value }}">
+            </span>
+            </div>
+        </div>
+        <div>
+            <input class="search-button" type="submit" value="Search" style="margin-left: 0">
+        </div>
+    </form>
+    <a href="/products/search/">Back to Basic Search</a>
+</div>
 {% endblock %}

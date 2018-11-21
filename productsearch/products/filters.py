@@ -9,6 +9,8 @@ EMPTY_VALUES = {
     0,
     None,
     '',
+    'None',
+    'N/A',
 }
 
 

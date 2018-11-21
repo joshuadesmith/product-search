@@ -1,8 +1,11 @@
-<div>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'products/styles.css' %}">
+
+<div class="header-section">
     <h1>Product Listing:</h1>
 </div>
 {% block product_table %}
-<div>
+<div class="table-section">
     {% if product_list %}
     <table>
         <thead>
@@ -38,7 +41,7 @@
 </div>
 {% endblock %}
 {% block search_form %}
-<div>
-    <a href="/products/search/">Search Products >></a>
+<div class="search-section">
+    <a href="/products/search/">Search products...</a>
 </div>
 {% endblock %}

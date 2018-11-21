@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+}
+
+/****** header section ******/
+.header-section {
+    width: 100%;
+    height: 80px;
+    background-color: #CE2029;
+    color: #FFFFFF;
+    padding: 20px 20px 0 20px;
+}
+
+h1 {
+    display: inline-block;
+    width: auto;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 4px solid #FFFFFF;
+}
+
+/****** table section *****/
+.table-section {
+    padding: 20px;
+    /*height: 60%;*/
+    /*overflow: auto;*/
+}
+
+table {
+    /*table-layout: fixed;*/
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    text-align: start;
+    background-color: #CE2029;
+    color: #FFFFFF;
+}
+
+thead th:nth-child(1) {
+    width: 11%;
+}
+
+thead th:nth-child(3) {
+    width: 15%;
+}
+
+thead th:nth-child(4) {
+    width: 10%;
+}
+
+thead th:nth-child(5) {
+    width: 10%;
+}
+
+thead th:nth-child(6) {
+    width: 8%;
+}
+
+thead th:nth-child(7) {
+    width: 8%;
+}
+
+thead th:nth-child(8) {
+    width: 8%;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    letter-spacing: 1px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #D5EEFF;
+}
+
+/****** search section ******/
+.search-section {
+    /*background-color: #D5EEFF;*/
+    margin: 0;
+    padding: 20px;
+}
+
+.form-field-div {
+    margin: 15px 0;
+}
+
+.form-field-title {
+    padding: 5px 0;
+    color: #CE2029;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-field-label {
+    padding: 5px 10px;
+    background: #CE2029;
+    color: #FFFFFF;
+    border-style: none;
+    border-bottom: 1px solid #CE2029;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    font-style: normal;
+}
+
+.form-field-min-max {
+    width: 100%;
+}
+
+.form-field-min, .form-field-max {
+    width: 50%;
+}
+
+.form-field-min {
+    margin-right: auto;
+}
+
+h2 {
+    margin: 0 0 10px 0;
+    color: #CE2029;
+}
+
+input[type=text] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input.search-box {
+    background: #FFFFFF;
+    width: 20%;
+    padding: 5px;
+    margin: 0;
+    border-style: none;
+    border-bottom: 2px solid #CE2029;
+    color: #CE2029;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+input.search-box.min-max-box {
+    width: 5%;
+}
+
+input[type=submit].search-button {
+    padding: 7px 15px;
+    margin-left: -4px;
+    background: #CE2029;
+    color: #FFFFFF;
+    border-style: none;
+    border-bottom: 1px solid #CE2029;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+/****** href links ******/
+a {
+    color: #CE2029;
+    font-weight: normal;
+    font-style: normal;
+}

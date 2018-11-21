@@ -1,17 +1,16 @@
 {% extends "./index.html" %}
 {% block search_form %}
-<h2>Search Products</h2>
-<div>
+<div class="search-section">
+    <h2>Search Products</h2>
     <form id="search_form" action="/products/search/" method="get" accept-charset="UTF-8">
-        <label for="description">Description:</label>
-        <input class="search_text"
+        <input class="search-box"
                id="description"
                type="text"
                name="description"
                placeholder="Search Products"
                value="{{ form.description.value }}"
         >
-        <input type="submit" value="Go">
+        <input type="submit" class="search-button" value="Go">
     </form>
     <a href="/products/search/advanced/">Advanced Search >></a>
 </div>
