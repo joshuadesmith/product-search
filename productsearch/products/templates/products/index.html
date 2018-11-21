@@ -22,27 +22,31 @@
                 <th>Unit</th>
             </tr>
             </thead>
-            <tbody>
-            {% for product in product_list %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.description|lower|capfirst }}</td>
-                <td>{{ product.last_sold }}</td>
-                <td>{{ product.shelf_life }}d</td>
-                <td>{{ product.department|lower|capfirst }}</td>
-                <td>${{ product.price }}</td>
-                <td>${{ product.cost }}</td>
-                <td>
-                    {% if product.unit == "LB" %}
-                    {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s{% endif %}
-                    {% else %}
-                    {{ product.unit|lower }}
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
         </table>
+        <div class="scroll-table-wrap">
+            <table>
+                <tbody>
+                {% for product in product_list %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.description|lower|capfirst }}</td>
+                    <td>{{ product.last_sold }}</td>
+                    <td>{{ product.shelf_life }}d</td>
+                    <td>{{ product.department|lower|capfirst }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>${{ product.cost }}</td>
+                    <td>
+                        {% if product.unit == "LB" %}
+                        {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s{% endif %}
+                        {% else %}
+                        {{ product.unit|lower }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
         {% else %}
         <h1>No Products found</h1>
         {% endif %}

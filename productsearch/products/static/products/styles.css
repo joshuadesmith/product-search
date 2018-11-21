@@ -13,7 +13,7 @@
     background-color: #495C70;
 }
 
-/****** full page ******/
+/****** full page / utilities ******/
 .container {
     background: #394D61;
     height: 100%;
@@ -28,6 +28,15 @@ body, html {
     box-sizing: border-box;
 }
 
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+    background-color: #53687E;
+}
+
+body::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb {
+    background-color: #A8BACE;
+    border-radius: 8px;
+}
+
 * {
     box-sizing: inherit;
 }
@@ -38,6 +47,10 @@ body, h1, h2, th, td {
 
 td {
     font-weight: 300;
+}
+
+.no-bottom-border {
+    border-bottom: none !important;
 }
 
 /****** header section ******/
@@ -103,8 +116,7 @@ h1 {
     width: 100%;
     padding: 20px;
     background-color: #495C70;
-    /*height: 60%;*/
-    /*overflow: auto;*/
+    table-layout: fixed;
 }
 
 table {
@@ -120,31 +132,31 @@ thead th {
     color: #FFFFFF;
 }
 
-thead th:nth-child(1) {
+thead th:nth-child(1), tr td:nth-child(1) {
     width: 11%;
 }
 
-thead th:nth-child(3) {
+thead th:nth-child(3), tr td:nth-child(3) {
     width: 15%;
 }
 
-thead th:nth-child(4) {
+thead th:nth-child(4), tr td:nth-child(4) {
     width: 10%;
 }
 
-thead th:nth-child(5) {
-    width: 10%;
+thead th:nth-child(5), tr td:nth-child(5) {
+    width: 15%;
 }
 
-thead th:nth-child(6) {
+thead th:nth-child(6), tr td:nth-child(6) {
     width: 8%;
 }
 
-thead th:nth-child(7) {
+thead th:nth-child(7), tr td:nth-child(7) {
     width: 8%;
 }
 
-thead th:nth-child(8) {
+thead th:nth-child(8), tr td:nth-child(8) {
     width: 8%;
 }
 
@@ -168,6 +180,12 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
     background-color: #576E86;
+}
+
+.scroll-table-wrap {
+    height: 50%;
+    min-height: 250px;
+    overflow-y: auto;
 }
 
 /****** search section ******/
