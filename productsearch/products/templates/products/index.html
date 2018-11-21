@@ -34,9 +34,9 @@
                 <td>${{ product.cost }}</td>
                 <td>
                     {% if product.unit == "LB" %}
-                        {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s{% endif %}
+                    {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s{% endif %}
                     {% else %}
-                        {{ product.unit|lower }}
+                    {{ product.unit|lower }}
                     {% endif %}
                 </td>
             </tr>
@@ -51,6 +51,26 @@
     {% block search_form %}
     <div class="search-section">
         <a href="/products/search/">Search products...</a>
+    </div>
+    {% endblock %}
+    {% block footer %}
+    <div class="footer-section">
+        <div class="footer-links">
+            <div class="footer-link">
+                <a href="/products/">Home</a>
+            </div>
+            <div class="footer-link">
+                <a href="/products/search/">Search Products</a>
+            </div>
+            <div class="footer-link">
+                <a href="/products/search/advanced/">Advanced Search</a>
+            </div>
+        </div>
+        <div class="footer-sig">
+            <div class="footer-sig-text">
+                Built by Joshua D. Smith
+            </div>
+        </div>
     </div>
     {% endblock %}
 </div>
