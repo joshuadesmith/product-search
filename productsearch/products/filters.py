@@ -56,7 +56,7 @@ LOOKUP_EXPRESSIONS = {
     'price_max': 'lte',
     'cost_min': 'gte',
     'cost_max': 'lte',
-    'unit': 'iexact',
+    'unit': 'icontains',
     'x_for': 'exact',
 }
 
@@ -100,7 +100,10 @@ class ProductFilterSet(object):
         value = value.strip()
 
         if field_type == forms.DateField:
-            return datetime.strptime(value, "%m/%d/%Y")
+            try:
+                return datetime.strptime(value, "%m/%d/%Y")
+            except ValueError as e:
+                raise RuntimeError('Last Sold dates must be in the format MM/DD/YYYY')
 
         if field_type == forms.DecimalField:
             if not value.isdigit():

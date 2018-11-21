@@ -37,8 +37,12 @@ def advanced_search(request):
         if len(request.GET):
             form = AdvancedSearchForm(data=request.GET)
             filter_set = ProductFilterSet(request.GET)
-            qs = filter_set.filter(qs)
-            return HttpResponse(template.render({'product_list': qs, 'form': form}, request))
+            try:
+                qs = filter_set.filter(qs)
+            except RuntimeError as e:
+                print(e.args[0])
+                return HttpResponse(template.render({'product_list': qs, 'form': form, 'form_error': str(e.args[0])}, request))
+            return HttpResponse(template.render({'product_list': qs, 'form': form, 'form_error': None}, request))
 
     print('Not in advanced_search.GET block')
-    return HttpResponse(template.render({'product_list': qs, 'form': AdvancedSearchForm()}, request))
+    return HttpResponse(template.render({'product_list': qs, 'form': AdvancedSearchForm(), 'form_error': None}, request))

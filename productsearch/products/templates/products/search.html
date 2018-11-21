@@ -7,8 +7,8 @@
                id="description"
                type="text"
                name="description"
-               placeholder="Search Products"
-               value="{{ form.description.value }}"
+               placeholder="E.g. apple"
+               value="{{ form.description.value|default_if_none:'' }}"
         >
         <input type="submit" class="search-button" value="Search">
     </form>
