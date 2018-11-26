@@ -1,48 +1,54 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import loader
 
 from .models import Product
 from .forms import AdvancedSearchForm, SearchForm
 from .filters import ProductFilterSet
+from .util import validate_query_string
 
 
 def index(request):
-    print('In index view')
     all_products = Product.objects.order_by('-last_sold')
     template = loader.get_template('products/index.html')
-
     return HttpResponse(template.render({'product_list': all_products}, request))
 
 
 def search(request):
-    print('In search view')
     template = loader.get_template('products/search.html')
     qs = Product.objects.order_by('-last_sold')
+    context = {'product_list': qs, 'form': SearchForm()}
+
     if request.method == 'GET':
         search_string = request.GET.get('description')
         if search_string:
             qs = qs.filter(description__icontains=search_string)
             form = SearchForm(data=request.GET)
-            return HttpResponse(template.render({'product_list': qs, 'form': form}, request))
+            context['product_list'] = qs
+            context['form'] = form
 
-    return HttpResponse(template.render({'product_list': qs, 'form': SearchForm()}, request))
+    return HttpResponse(template.render(context, request))
 
 
 def advanced_search(request):
-    print('In advanced_search view')
+    try:
+        validate_query_string(request)
+    except RuntimeError as e:
+        raise Http404(str(e.args[0]))
+
     template = loader.get_template('products/advsearch.html')
     qs = Product.objects.all()
-    if request.method == 'GET':
-        print('In advanced_search.GET block')
-        if len(request.GET):
-            form = AdvancedSearchForm(data=request.GET)
-            filter_set = ProductFilterSet(request.GET)
-            try:
-                qs = filter_set.filter(qs)
-            except RuntimeError as e:
-                print(e.args[0])
-                return HttpResponse(template.render({'product_list': qs, 'form': form, 'form_error': str(e.args[0])}, request))
-            return HttpResponse(template.render({'product_list': qs, 'form': form, 'form_error': None}, request))
+    context = {'product_list': qs, 'form': AdvancedSearchForm(), 'form_error': None}
 
-    print('Not in advanced_search.GET block')
-    return HttpResponse(template.render({'product_list': qs, 'form': AdvancedSearchForm(), 'form_error': None}, request))
+    if request.method == 'GET':
+        if len(request.GET):
+            try:
+                form = AdvancedSearchForm(data=request.GET)
+                filter_set = ProductFilterSet(request.GET)
+                qs = filter_set.filter(qs)
+                context['product_list'] = qs  # Necessary because filtering a queryset creates a new queryset object
+                context['form'] = form
+            except RuntimeError as e:
+                # Lazy way of producing custom errors
+                context['form_error'] = str(e.args[0])
+
+    return HttpResponse(template.render(context, request))

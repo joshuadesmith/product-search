@@ -1,101 +1,101 @@
 {% extends "./index.html" %}
 
 {% block search_form %}
-<div class="search-section">
-    <h2>Advanced Search</h2>
-    <form id="search_form" action="/products/search/advanced/" method="get" accept-charset="UTF-8">
-        <div class="adv-search-container">
-            <div class="adv-search-left">
-                <div class="form-field-div">
-                    <label class="form-field-label" for="id_num">Product ID:</label>
-                    <input class="search-box" id="id_num" name="id_num"
-                           value="{{ form.id_num.value|default_if_none:'' }}">
+    <div class="search-section">
+        <h2>Advanced Search</h2>
+        <form id="search_form" action="/products/search/advanced/" method="get" accept-charset="UTF-8">
+            <div class="adv-search-container">
+                <div class="adv-search-left">
+                    <div class="form-field-div">
+                        <label class="form-field-label" for="id_num">Product ID:</label>
+                        <input class="search-box" id="id_num" name="id_num"
+                               value="{{ form.id_num.value|default_if_none:'' }}">
+                    </div>
+                    <div class="form-field-div">
+                        <label class="form-field-label" for="description">Description: </label>
+                        <input class="search-box" id="description" name="description"
+                               value="{{ form.description.value|default_if_none:'' }}">
+                    </div>
+                    <div class="form-field-div">
+                        <label class="form-field-label" for="department">Department: </label>
+                        <input class="search-box" id="department" name="department"
+                               value="{{ form.department.value|default_if_none:'' }}">
+                    </div>
+                    <div class="form-field-div">
+                        <label class="form-field-label" for="unit">Units:</label>
+                        <input class="search-box" id="unit" name="unit" value="{{ form.unit.value }}">
+                    </div>
                 </div>
-                <div class="form-field-div">
-                    <label class="form-field-label" for="description">Description: </label>
-                    <input class="search-box" id="description" name="description"
-                           value="{{ form.description.value|default_if_none:'' }}">
-                </div>
-                <div class="form-field-div">
-                    <label class="form-field-label" for="department">Department: </label>
-                    <input class="search-box" id="department" name="department"
-                           value="{{ form.department.value|default_if_none:'' }}">
-                </div>
-                <div class="form-field-div">
-                    <label class="form-field-label" for="unit">Units:</label>
-                    <input class="search-box" id="unit" name="unit" value="{{ form.unit.value }}">
-                </div>
-            </div>
-            <div class="adv-search-center">
-                <div class="form-field-div">
-                    <!--<div class="form-field-title">Last Sold</div>-->
-                    <div class="form-field-min-max">
+                <div class="adv-search-center">
+                    <div class="form-field-div">
+                        <!--<div class="form-field-title">Last Sold</div>-->
+                        <div class="form-field-min-max">
                         <span class="form-field-min">
                             <label class="form-field-label" for="last_sold_min">Last Sold Min: </label>
                             <input class="search-box min-max-box" id="last_sold_min" name="last_sold_min"
                                    value="{{ form.last_sold_min.value|default_if_none:'' }}">
                         </span>
-                        <span class="form-field-max">
+                            <span class="form-field-max">
                             <label class="form-field-label" for="last_sold_max">Max: </label>
                             <input class="search-box min-max-box" id="last_sold_max" name="last_sold_max"
                                    value="{{ form.last_sold_max.value|default_if_none:'' }}">
                         </span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-field-div">
-                    <!--<div class="form-field-title">Shelf Life</div>-->
-                    <div class="form-field-min-max">
+                    <div class="form-field-div">
+                        <!--<div class="form-field-title">Shelf Life</div>-->
+                        <div class="form-field-min-max">
                         <span class="form-field-min">
                             <label class="form-field-label" for="shelf_life_min">Shelf Life Min:</label>
                             <input class="search-box min-max-box" id="shelf_life_min" name="shelf_life_min"
                                    value="{{ form.shelf_life_min.value|default_if_none:'' }}">
                         </span>
-                        <span class="form-field-max">
+                            <span class="form-field-max">
                             <label class="form-field-label" for="shelf_life_max">Max:</label>
                             <input class="search-box min-max-box" id="shelf_life_max" name="shelf_life_max"
                                    value="{{ form.shelf_life_max.value|default_if_none:'' }}">
                         </span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-field-div">
-                    <!--<div class="form-field-title">Price</div>-->
-                    <div class="form-field-min-max">
+                    <div class="form-field-div">
+                        <!--<div class="form-field-title">Price</div>-->
+                        <div class="form-field-min-max">
                         <span class="form-field-min">
                             <label class="form-field-label" for="price_min">Price Min: </label>
                             <input class="search-box min-max-box" id="price_min" name="price_min"
                                    value="{{ form.price_min.value|default_if_none:'' }}">
                         </span>
-                        <span class="form-field-max">
+                            <span class="form-field-max">
                             <label class="form-field-label" for="price_max">Max: </label>
                             <input class="search-box min-max-box" id="price_max" name="price_max"
                                    value="{{ form.price_max.value|default_if_none:'' }}">
                         </span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-field-div">
-                    <!--<div class="form-field-title">Cost</div>-->
-                    <div class="form-field-min-max">
+                    <div class="form-field-div">
+                        <!--<div class="form-field-title">Cost</div>-->
+                        <div class="form-field-min-max">
                         <span class="form-field-min">
                             <label class="form-field-label" for="cost_min">Cost Min: </label>
                             <input class="search-box min-max-box" id="cost_min" name="cost_min"
                                    value="{{ form.cost_min.value|default_if_none:'' }}">
                         </span>
-                        <span class="form-field-max">
+                            <span class="form-field-max">
                             <label class="form-field-label" for="cost_max">Max: </label>
                             <input class="search-box min-max-box" id="cost_max" name="cost_max"
                                    value="{{ form.cost_max.value|default_if_none:'' }}">
                         </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <input class="search-button" type="submit" value="Search" style="margin-left: 0">
-        </div>
-        {% if form_error %}
-        <div class="form-error">{{ form_error }}</div>
-        {% endif %}
-    </form>
-    <!--<a href="/products/search/">Back to Basic Search</a>-->
-</div>
+            <div>
+                <input class="search-button" type="submit" value="Search" style="margin-left: 0">
+            </div>
+            {% if form_error %}
+                <div class="form-error">{{ form_error }}</div>
+            {% endif %}
+        </form>
+        <!--<a href="/products/search/">Back to Basic Search</a>-->
+    </div>
 {% endblock %}
