@@ -1,16 +1,16 @@
 {% extends "./index.html" %}
 {% block search_form %}
-<div class="search-section">
-    <h2>Search Products</h2>
-    <form id="search_form" action="/products/search/" method="get" accept-charset="UTF-8">
-        <input class="search-box"
-               id="description"
-               type="text"
-               name="description"
-               placeholder="E.g. apple"
-               value="{{ form.description.value|default_if_none:'' }}"
-        >
-        <input type="submit" class="search-button" value="Search">
-    </form>
-</div>
+    <div class="search-section">
+        <h2>Search Products</h2>
+        <form id="search_form" action="/products/search/" method="get" accept-charset="UTF-8">
+            <input class="search-box"
+                   id="description"
+                   type="text"
+                   name="description"
+                   placeholder="E.g. apple"
+                   value="{{ form.description.value|default_if_none:'' }}"
+            >
+            <input type="submit" class="search-button" value="Search">
+        </form>
+    </div>
 {% endblock %}

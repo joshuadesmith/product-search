@@ -7,75 +7,76 @@
         <h1>Product Database</h1>
     </div>
     {% block product_table %}
-    <div class="table-section">
-        {% if product_list %}
-        <table>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Description</th>
-                <th>Last Sold</th>
-                <th>Shelf Life</th>
-                <th>Department</th>
-                <th>Price</th>
-                <th>Cost</th>
-                <th>Unit</th>
-            </tr>
-            </thead>
-        </table>
-        <div class="scroll-table-wrap">
-            <table>
-                <tbody>
-                {% for product in product_list %}
-                <tr>
-                    <td>{{ product.id }}</td>
-                    <td>{{ product.description|lower|capfirst }}</td>
-                    <td>{{ product.last_sold }}</td>
-                    <td>{{ product.shelf_life }}d</td>
-                    <td>{{ product.department|lower|capfirst }}</td>
-                    <td>${{ product.price }}</td>
-                    <td>${{ product.cost }}</td>
-                    <td>
-                        {% if product.unit == "LB" %}
-                        {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s{% endif %}
-                        {% else %}
-                        {{ product.unit|lower }}
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+        <div class="table-section">
+            {% if product_list %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>Last Sold</th>
+                        <th>Shelf Life</th>
+                        <th>Department</th>
+                        <th>Price</th>
+                        <th>Cost</th>
+                        <th>Unit</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="scroll-table-wrap">
+                    <table>
+                        <tbody>
+                        {% for product in product_list %}
+                            <tr>
+                                <td>{{ product.id }}</td>
+                                <td>{{ product.description|lower|capfirst }}</td>
+                                <td>{{ product.last_sold }}</td>
+                                <td>{{ product.shelf_life }}d</td>
+                                <td>{{ product.department|lower|capfirst }}</td>
+                                <td>${{ product.price }}</td>
+                                <td>${{ product.cost }}</td>
+                                <td>
+                                    {% if product.unit == "LB" %}
+                                        {{ product.x_for }}{{ product.unit|lower }}{% if product.x_for > 1 %}s
+                                        {% endif %}
+                                    {% else %}
+                                        {{ product.unit|lower }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="product-count">{{ product_list|length }} products found</div>
+            {% else %}
+                <h1>No Products found</h1>
+            {% endif %}
         </div>
-        <div class="product-count">{{ product_list|length }} products found</div>
-        {% else %}
-        <h1>No Products found</h1>
-        {% endif %}
-    </div>
     {% endblock %}
     {% block search_form %}
-    <div class="search-section">
-        <a href="/products/search/">Search products...</a>
-    </div>
+        <div class="search-section">
+            <a href="/products/search/">Search products...</a>
+        </div>
     {% endblock %}
     {% block footer %}
-    <div class="footer-section">
-        <div class="footer-links">
-            <div class="footer-link">
-                <a href="/products/">Home</a>
+        <div class="footer-section">
+            <div class="footer-links">
+                <div class="footer-link">
+                    <a href="/products/">Home</a>
+                </div>
+                <div class="footer-link">
+                    <a href="/products/search/">Basic Search</a>
+                </div>
+                <div class="footer-link">
+                    <a href="/products/search/advanced/">Advanced Search</a>
+                </div>
             </div>
-            <div class="footer-link">
-                <a href="/products/search/">Basic Search</a>
-            </div>
-            <div class="footer-link">
-                <a href="/products/search/advanced/">Advanced Search</a>
+            <div class="footer-sig">
+                <div class="footer-sig-text">
+                    Built by Joshua D. Smith<br>Theme inspired by Sanwebe.com
+                </div>
             </div>
         </div>
-        <div class="footer-sig">
-            <div class="footer-sig-text">
-                Built by Joshua D. Smith
-            </div>
-        </div>
-    </div>
     {% endblock %}
 </div>
