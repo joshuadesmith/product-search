@@ -1,0 +1,22 @@
+<div>
+    <h3>Upload a CSV file to add products to Database in bulk</h3>
+    <div>
+        <ul>
+            <li>The file must <b>NOT</b> include a header row</li>
+            <li>Each row of the file must have the following form:</li>
+            <li style="margin-left: 20px"><b>ID,description,lastSold,shelfLife,department,price,unit,xFor,cost</b></li>
+            <li style="margin-left: 40px"><b>lastSold</b> must be a date with the form MM/DD/YYYY</li>
+            <li style="margin-left: 40px"><b>shelfLife</b> must be in the form Nd where N is an integer</li>
+            <li style="margin-left: 40px"><b>department</b> must be either Produce, Grocery, or Pharmacy</li>
+            <li style="margin-left: 40px"><b>unit</b> must be either lb or each</li>
+            <li style="margin-left: 40px"><b>price</b> and <b>cost</b> must have the form $X.XX</li>
+            <li style="margin-left: 40px"><b>xFor</b> must be an integer</li>
+        </ul>
+    </div>
+    <form id="file_upload_form" action="/products/upload/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input id="file_upload" name="file" type="file"/>
+        <input type="submit" value="Upload CSV File">
+    </form>
+    <a href="/admin/products/product/">Cancel Load from CSV</a>
+</div>

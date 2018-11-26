@@ -4,6 +4,7 @@ from .models import Product
 
 
 class ProductAdmin(admin.ModelAdmin):
+    change_list_template = 'admin/products_changelist.html'
     save_on_top = True
 
     list_display = (

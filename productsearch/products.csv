@@ -1,4 +1,3 @@
-ID,Description,lastSold,ShelfLife,Department, Price ,Unit,xFor, Cost
 753542,banana,9/5/2017,4d,Produce, $2.99 ,lb,1, $0.44
 321654,apples,9/6/2017,7d,Produce, $1.49 ,lb,1, $0.20
 95175,Strawberry,9/7/2017,3d,Produce, $2.49 ,lb,1, $0.10
@@ -19,3 +18,4 @@ ID,Description,lastSold,ShelfLife,Department, Price ,Unit,xFor, Cost
 9000003,Cold and Flu,9/22/2017,365d,Pharmacy, $3.29 ,Each,1, $1.90
 9000004,Allegry Medicine,9/23/2017,365d,Pharmacy, $3.00 ,Each,1, $1.25
 9000005,Pain,9/24/2017,365d,Pharmacy, $2.89 ,Each,1, $1.00
+321655,apple sauce,9/10/2017,48d,Grocery,$3.99,each,1,$1.00

@@ -23,3 +23,7 @@ class AdvancedSearchForm(forms.Form):
     price_max = forms.DecimalField(label='Price Max', required=False)
     cost_min = forms.DecimalField(label='Cost Min', required=False)
     cost_max = forms.DecimalField(label='Cost Max', required=False)
+
+
+class BulkUploadForm(forms.Form):
+    file = forms.FileField(required=True, widget=forms.FileInput)

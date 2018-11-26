@@ -1,10 +1,13 @@
-from django.http import HttpResponse, Http404
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.template import loader
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
 
 from .models import Product
-from .forms import AdvancedSearchForm, SearchForm
+from .forms import AdvancedSearchForm, SearchForm, BulkUploadForm
 from .filters import ProductFilterSet
 from .util import validate_query_string
+from .fileparse import load_products
 
 
 def index(request):
@@ -52,3 +55,18 @@ def advanced_search(request):
                 context['form_error'] = str(e.args[0])
 
     return HttpResponse(template.render(context, request))
+
+
+@staff_member_required
+def bulk_upload(request):
+    if request.method == 'POST':
+        # Handle the file if POST present
+        num_added = load_products(request.FILES['file'])
+        messages.add_message(request, messages.INFO, 'Added {} products to Database'.format(num_added))
+        return HttpResponseRedirect('/admin/products/product/')
+    else:
+        # Load the upload page if no POST
+        template = loader.get_template('products/bulkupload.html')
+        form = BulkUploadForm()
+        context = {'form': form}
+        return HttpResponse(template.render(context, request))
